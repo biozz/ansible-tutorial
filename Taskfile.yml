@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  dev:
+    cmds:
+      - mdbook watch . --open
+  build:
+    cmds:
+      - mdbook build
+  deploy:
+    deps: [build]
+    cmds:
+      - wrangler pages publish --project-name=ansible-tutorial book/

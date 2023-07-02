@@ -14,7 +14,7 @@
   - [Пользователи](./02_first_commands/02_users.md)
   - [Разовые команды](./02_first_commands/03_adhoc_commands.md)
 - [Плейбуки](./03_playbooks/00_index.md)
-- [Реальные проекты](./04_real_projects/00_index.md)
+- [Реальные проекты]()
 
 ---
 
@@ -32,5 +32,5 @@
 
 ---
 
-[Заключение](./98_outro.md)
-[Ссылки](./99_references.md)
+[Заключение]()
+[Ссылки]()
