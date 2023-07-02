@@ -1,0 +1,6 @@
+[book]
+authors = ["Ivan Elfimov <ielfimov@gmail.com>"]
+language = "ru"
+multilingual = true
+src = "src"
+title = "Ansible для начинающих"
