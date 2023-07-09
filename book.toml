@@ -4,4 +4,7 @@ language = "ru"
 multilingual = true
 src = "src"
 title = "Ansible для начинающих"
+
+[output.html]
 git-repository-url = "https://github.com/biozz/ansible-tutorial"
+
