@@ -1,0 +1,36 @@
+---
+- name: Create telegraf directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ telegraf_directory }}"
+
+- name: Create telegraf configuration from template
+  template:
+    src: "templates/telegraf.conf.j2"
+    dest: "{{ telegraf_directory }}/telegraf.conf"
+
+- name: Ensure telegraf docker container is started
+  community.docker.docker_container:
+    name: telegraf
+    image: telegraf:1.27.1
+    restart: true
+    state: started
+    restart_policy: "unless-stopped"
+    # docker group - 998
+    user: telegraf:998
+    network_mode: host
+    env:
+      HOST_MOUNT_PREFIX: /hostfs
+      HOST_PROC: /hostfs/proc
+      HOST_SYS: /hostfs/sys
+      HOST_VAR: /hostfs/var
+      HOST_RUN: /hostfs/run
+    volumes:
+      - "{{ telegraf_directory }}/telegraf.conf:/etc/telegraf/telegraf.conf:ro"
+      - "/:/hostfs:ro"
+      - "/proc:/hostfs/proc:ro"
+      - "/sys:/hostfs/sys:ro"
+      - "/var:/hostfs/var:ro"
+      - "/run:/hostfs/run:ro"
