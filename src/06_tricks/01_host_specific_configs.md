@@ -6,11 +6,11 @@
 
 Нас интересует полностью автоматический метод, поэтому остановимся на переменных инвентаря. Примеры написаны для [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/), этакий комбайн для сбора, обработки и отправки метрик.
 
+Полностью рабочие примеры проектов можно найти тут: [`src/00_sources/06_tricks/01_host_specific_configs`](https://github.com/biozz/ansible-tutorial/tree/master/src/00_sources/06_tricks/01_host_specific_configs). Запускается из папки с инвентарём с помощью `ansible-playbook main.yml`.
+
 ## Переменные инвентаря
 
-Полностью рабочий пример проекта можно найти тут: [`src/00_sources/06_tricks/01_host_specific_configs/01_inventory_vars`](https://github.com/biozz/ansible-tutorial/tree/master/src/00_sources/06_tricks/01_host_specific_configs/01_inventory_vars). Запускается из папки с инвентарём с помощью `ansible-playbook main.yml`.
-
-Вот все его файлы:
+Вот список файлов для этого подхода:
 
 ```
 ├── inventory
