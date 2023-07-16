@@ -19,12 +19,12 @@ hello
 ```bash
 > ansible debs -m shell -a 'echo $TERM'
 deb2 | CHANGED | rc=0 >>
-xterm-256color
+screen-256color
 deb1 | CHANGED | rc=0 >>
-xterm-256color
+screen-256color
 ```
 
-Попробуем скопировать файл с нашей машины на удалённые хосты:
+Попробуем скопировать файл инвентаря с нашей машины на удалённые хосты:
 
 ```bash
 > ansible debs -m copy -a "src=inventory.yml dest=/tmp/foo"
@@ -61,7 +61,7 @@ deb1 | CHANGED => {
 Можно убедиться, что файл скопировался:
 
 ```bash
-> docker exec -it containers_deb1_1 cat /tmp/foo
+> docker exec -it containers-deb1-1 cat /tmp/foo
 ---
 debs:
   hosts:

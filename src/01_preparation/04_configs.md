@@ -1,6 +1,6 @@
 # Базовый инвентарь
 
-Создать `inventory.yml`:
+Теперь можно начать настраивать скрипты. Нужно перейти из `containers/` на уровнеь выше и создать `inventory.yml` внутри `ansible/`:
 
 ```yaml
 ---
@@ -22,18 +22,32 @@ debs:
 
 Создать `ansible.cfg`:
 
-```bash
+```ini
 [defaults]
-inventory = /path/to/inventory.yml
+inventory = inventory.yml
 ```
+
+Помимо ссылки на инвентарь я обычно устанавливаю эти переменные:
+
+```
+deprecation_warnings=False
+nocows=True
+vault_password_file=/path/to/vault/password/file
+```
+
+Подробно про каждую настройку и другие можно почитать здесь [Ansible Configuration Settings](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings).
 
 ## Что должно получиться
 
-```bash
+```
+├── .venv
+│   └── ...
 ├── containers
 │   ├── Dockerfile
 │   ├── docker-compose.yml
-│   └── docker-entrypoint.sh
+│   └── entrypoint.sh
 ├── ansible.cfg
 └── inventory.yml
 ```
+
+Теперь мы готовы запускать первые команды. Можно переходить к следующей части.

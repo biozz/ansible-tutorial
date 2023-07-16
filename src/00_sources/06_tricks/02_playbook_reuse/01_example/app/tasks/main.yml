@@ -1,0 +1,3 @@
+---
+- name: Generic app tasks
+  ansible.builtin.include_tasks: "../../common/tasks/app.yml"

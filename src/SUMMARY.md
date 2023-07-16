@@ -28,10 +28,11 @@
 
 # Трюки
 
-- [Отладка]()
 - [Специфичные конфиги хоста](./06_tricks/01_host_specific_configs.md)
+- [Переиспользование плейбука](./06_tricks/02_playbook_reuse.md)
+- [Использование Taskfile](./06_tricks/03_using_taskfile.md)
+- [Отладка]()
 - [Теги]()
-- [Использование Taskfile]()
 
 ---
 

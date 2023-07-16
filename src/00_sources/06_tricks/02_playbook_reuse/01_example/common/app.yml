@@ -1,0 +1,60 @@
+---
+- name: Create the domain in Cloudflare
+  community.general.cloudflare_dns:
+    zone: "{{ base_domain }}"
+    record: "{{ app_name }}"
+    type: A
+    value: "{{ server_ipv4 }}"
+    account_email: "{{ cloudflare_email }}"
+    account_api_key: "{{ cloudflare_api_key }}"
+  when: app_init
+
+- name: Create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ app_directory }}"
+    - "{{ app_source_directory }}"
+  when: app_init
+
+- name: Download files via git
+  ansible.builtin.git:
+    repo: "{{ app_repository }}"
+    dest: "{{ app_source_directory }}"
+    force: true
+    accept_hostkey: true
+    key_file: "{{ git_ssh_key_path }}"
+
+- name: Build docker image
+  community.general.docker_image:
+    build:
+      path: "{{ app_source_directory }}"
+    name: "{{ app_name }}"
+    tag: latest
+    source: build
+    state: present
+
+- name: Start docker container
+  community.docker.docker_container:
+    name: "{{ app_name }}"
+    image: "{{ app_name }}:latest"
+    state: started
+    pull: false
+    recreate: true
+    restart_policy: "unless-stopped"
+    command: "{{ app_command }}"
+    labels: "{{ app_labels | items2dict }}"
+
+- name: Wait for the app to be online
+  uri:
+    url: "https://{{ app_host }}"
+    status_code: 200
+  register: result
+  until: result.status == 200
+  retries: 60
+  delay: 1
+
+- name: "Done"
+  debug:
+    msg: "https://{{ app_host }}"

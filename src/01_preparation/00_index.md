@@ -7,4 +7,4 @@
 - [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installation-guide)
 - [Alpine SSH Container by Praqma/alpine-sshd](https://github.com/Praqma/alpine-sshd)
 - [Ansible Inventory Basics](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups)
-- [Ansible Config Example](https://github.com/ansible/ansible/blob/devel/examples/ansible.cfg)
+- [Ansible Configuration Settings](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings)

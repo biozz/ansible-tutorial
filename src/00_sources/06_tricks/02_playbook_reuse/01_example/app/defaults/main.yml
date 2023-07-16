@@ -1,0 +1,28 @@
+---
+app_init: no
+app_directory: "/path/to/myapp"
+app_source_directory: "{{ app_directory }}/src"
+app_repository: "ssh://git@mygit.com/myapp.git"
+app_name: "myapp"
+app_domain: "{{ app_name }}"
+app_host: "{{ app_domain }}.{{ base_domain }}"
+app_internal_port: "8080"
+
+app_command:
+  - "--db-uri=mongodb://mongodb:27017"
+  - "server"
+  - "--bind=:{{ app_internal_port }}"
+
+app_labels:
+  - key: "traefik.enable"
+    value: "true"
+  - key: "traefik.http.routers.{{ app_name }}.entrypoints"
+    value: "https"
+  - key: "traefik.http.routers.{{ app_name }}.rule"
+    value: "Host(`{{ app_host }}`)"
+  - key: "traefik.http.routers.{{ app_name }}.tls"
+    value: "true"
+  - key: "traefik.http.routers.{{ app_name }}.tls.certresolver"
+    value: "letsencrypt"
+  - key: "traefik.http.services.{{ app_name }}.loadbalancer.server.port"
+    value: "{{ app_internal_port }}"
