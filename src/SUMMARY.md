@@ -12,7 +12,8 @@
 - [Первые команды](./02_first_commands/00_index.md)
   - [Hello world по ансибловски](./02_first_commands/01_hello_world.md)
   - [Пользователи](./02_first_commands/02_users.md)
-  - [Разовые команды](./02_first_commands/03_adhoc_commands.md)
+  - [Разовые команды - 1](./02_first_commands/03_adhoc_commands_01.md)
+  - [Разовые команды - 2](./02_first_commands/03_adhoc_commands_02.md)
 - [Плейбуки](./03_playbooks/00_index.md)
 - [Реальные проекты]()
 
