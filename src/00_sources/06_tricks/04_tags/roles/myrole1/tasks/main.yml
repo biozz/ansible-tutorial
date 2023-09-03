@@ -1,0 +1,4 @@
+---
+- name: Print a message
+  ansible.builtin.debug:
+    msg: This is a message from myrole1

@@ -1,0 +1,8 @@
+---
+- name: Deploy
+  hosts: all
+  become: true
+  roles:
+    - { role: myrole1, tags: [foo, init] }
+    - { role: myrole2, tags: [bar, init] }
+    - { role: myrole3, tags: [buz] }
