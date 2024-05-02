@@ -7,8 +7,8 @@
 - [Подготовка](./01_preparation/00_index.md)
   - [Определения](./01_preparation/01_definitions.md)
   - [Папки и установка](./01_preparation/02_install.md)
-  - [Хосты](./01_preparation/03_hosts.md)
-  - [Конфиги](./01_preparation/04_configs.md)
+  - [Подготовка хостов](./01_preparation/03_hosts.md)
+  - [Конфиги и инвентарь](./01_preparation/04_configs.md)
 - [Первые команды](./02_first_commands/00_index.md)
   - [Hello world по ансибловски](./02_first_commands/01_hello_world.md)
   - [Пользователи](./02_first_commands/02_users.md)
@@ -21,6 +21,7 @@
 
 # Развитие
 
+- [Инвентарь]()
 - [Роли]()
 - [Шифрование]()
 - [Пакеты]()
